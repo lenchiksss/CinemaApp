@@ -2,7 +2,6 @@ using CinemaApp.Models;
 using CinemaApp.Repositories.Interfaces;
 using CinemaApp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace CinemaApp.Controllers
 {
@@ -75,38 +74,6 @@ namespace CinemaApp.Controllers
             return RedirectToAction("Index");
         }
 
-        //public IActionResult Delete(int id)
-        //{
-        //    if (id == null || id == 0)
-        //    {
-        //        return NotFound();
-        //    }
-        //    var movie = movieRepository.GetMovie(id);
-
-        //    if (movie == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(movie);
-        //}
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public IActionResult DeleteConfirmed(int id)
-        //{
-        //    var movie = movieRepository.GetMovie(id);
-
-        //    if (movie == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    movieRepository.Delete(id);
-
-        //    return RedirectToAction("Index");
-        //}
-
         public IActionResult Delete(int id)
         {
             var movie = movieRepository.GetMovie(id);
@@ -119,8 +86,6 @@ namespace CinemaApp.Controllers
             return View("doesNotExists");
         }
 
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
