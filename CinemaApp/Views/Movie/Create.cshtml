@@ -1,0 +1,59 @@
+﻿@model Movie
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container shadow p-5">
+    <div class="row pb-2">
+        <h2>Add Movie</h2>
+    </div>
+
+    <form method="post">
+        <div asp-validation-summary="All"></div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Title">Movie Title</label>
+                <input type="text" class="form-control mb-3" asp-for="Title" placeholder="Enter Title" required>
+                <span asp-validation-for="Title" class="alert-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Description">Description</label>
+                <input type="text" class="form-control mb-3" asp-for="Description" placeholder="Enter Description" required>
+                <span asp-validation-for="Description" class="alert-danger"></span>
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label asp-for="Director">Director</label>
+                <input type="text" class="form-control" asp-for="Director" placeholder="Enter Director" required>
+                <span asp-validation-for="Director" class="alert-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Genre">Genre</label>
+                <input type="text" class="form-control mb-5" asp-for="Genre" placeholder="Enter Genre" required>
+                <span asp-validation-for="Genre" class="alert-danger"></span>
+            </div>
+            <div class="form-group col-md-6 mb-3">
+                <label asp-for="Showtime">Showtime</label>
+                <input type="datetime-local" class="form-control" asp-for="Showtime" required>
+                <span asp-validation-for="Showtime" class="alert-danger"></span>
+            </div>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-lg btn-primary p-2"><i class="bi bi-file-plus-fill"></i>Save</button>
+        <a asp-controller="Movie" asp-action="Index" class="btn btn-lg btn-warning p-2">Back To List</a>
+    </form>
+</div>
+
+@*//for front end validations*@
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
